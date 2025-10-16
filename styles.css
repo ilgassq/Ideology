@@ -1,0 +1,276 @@
+/* Global Styles */
+:root {
+    --color-background: #0a0a0f;
+    --color-text: #e0e0e0;
+    --color-neon-blue: #00f3ff;
+    --color-neon-pink: #ff00ff;
+    --font-mono: 'Space Mono', monospace;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Scanline Effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%,
+        rgba(0, 0, 0, 0.05) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.15;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-mono);
+    color: var(--color-text);
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-neon-blue);
+}
+
+.navbar-brand {
+    color: var(--color-neon-blue);
+    font-weight: bold;
+}
+
+.nav-link {
+    color: var(--color-text) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-neon-blue) !important;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-color: var(--color-background);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glitch Effect */
+.glitch-title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--color-neon-blue);
+    text-shadow: 0 0 10px var(--color-neon-blue);
+    position: relative;
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 var(--color-neon-pink),
+                     -0.05em -0.025em 0 var(--color-neon-blue);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 var(--color-neon-pink),
+                     -0.05em -0.025em 0 var(--color-neon-blue);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 var(--color-neon-pink),
+                     0.025em 0.025em 0 var(--color-neon-blue);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--color-neon-pink),
+                     0.025em 0.025em 0 var(--color-neon-blue);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 var(--color-neon-pink),
+                     0.05em 0 0 var(--color-neon-blue);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 var(--color-neon-pink),
+                     0.05em 0 0 var(--color-neon-blue);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 var(--color-neon-pink),
+                     -0.025em -0.025em 0 var(--color-neon-blue);
+    }
+}
+
+/* Reduce motion if preferred */
+@media (prefers-reduced-motion: reduce) {
+    .glitch-title {
+        animation: none;
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    color: var(--color-text);
+}
+
+/* Neon Buttons */
+.btn-neon {
+    color: var(--color-neon-blue);
+    border: 2px solid var(--color-neon-blue);
+    background: transparent;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background: var(--color-neon-blue);
+    color: var(--color-background);
+    box-shadow: 0 0 20px var(--color-neon-blue);
+}
+
+.btn-neon-alt {
+    color: var(--color-neon-pink);
+    border: 2px solid var(--color-neon-pink);
+    background: transparent;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-neon-alt:hover {
+    background: var(--color-neon-pink);
+    color: var(--color-background);
+    box-shadow: 0 0 20px var(--color-neon-pink);
+}
+
+/* Section Styles */
+.section-dark {
+    padding: 5rem 0;
+    position: relative;
+}
+
+/* Neon Box */
+.neon-box {
+    border: 1px solid var(--color-neon-blue);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: rgba(0, 243, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon-box:hover {
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+/* Character Cards */
+.character-card {
+    border: 1px solid var(--color-neon-pink);
+    padding: 2rem;
+    background: rgba(255, 0, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
+}
+
+.character-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid var(--color-neon-pink);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-image {
+    transform: scale(1.02);
+}
+
+/* Gallery */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border: 1px solid var(--color-neon-blue);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    border-color: var(--color-neon-pink);
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+.gallery-item:hover .image-placeholder {
+    border-color: var(--color-neon-pink);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
+}
+
+/* Teaser List */
+.teaser-list {
+    list-style: none;
+    padding: 0;
+}
+
+.teaser-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.teaser-list li:last-child {
+    border-bottom: none;
+}
+
+/* Footer */
+.footer {
+    padding: 2rem 0;
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-neon-blue);
+}
+
+.neon-line {
+    height: 1px;
+    background: var(--color-neon-blue);
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px var(--color-neon-blue);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .glitch-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .btn-neon, .btn-neon-alt {
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+    }
+}
+
+/* Accessibility Focus States */
+a:focus, button:focus {
+    outline: 2px solid var(--color-neon-pink);
+    outline-offset: 2px;
+}
