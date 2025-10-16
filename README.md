@@ -1,0 +1,1 @@
+A responsive cyberpunk portfolio site for the sci-fi series "Ideology." Built with Bootstrap 5, HTML5, and CSS. Features a dark tech-noir aesthetic, neon accents, a CSS glitch title, and accessible semantic structure. Sections: logline, synopsis, world, characters, gallery, and contact.
